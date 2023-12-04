@@ -1,4 +1,3 @@
-"use client"
 import "@pathfinder-ide/react/dist/style.css"
 import dynamic from "next/dynamic"
 

@@ -1,16 +1,15 @@
 # About
 
-Reproduction of issue with Next.js v14.0.2 and higher (up to at least v14.0.4-canary.11), where the `@pathfinder-ide/react` package can not be included in an app router page because of failed imports.
+Reproduction of issue with Next.js v14.0.3-canary.12 and higher (up to at least v14.0.4-canary.37), where the `@pathfinder-ide/react` package can not be imported dynamically in a pages router page because of failed imports.
 
 ## How to observe the error
 
-- Start a build with `pnpm build`
+- Start a build with `pnpm build` (v14.0.4-canary.37 installed)
 - Observer the following error
 
 ```
-Attempted import error: 's' is not exported from './index-95c7a92d.js' (imported as 'ee').
+Module not found: ESM packages (@pathfinder-ide/react) need to be imported. Use 'import' to reference the package instead. https://nextjs.org/docs/messages/import-esm-externals
 ```
 
-- Downgrade from Next v14.0.3 (same error in v14.0.4-canary.11) to v14.0.1 `pnpm add next@14.0.1`
-- Run `pnpm build` again
-- Observe that the build passed. You can als `pnpm start` and visit the page to see that the IDE is properly instantiated.
+- Downgrade to v14.0.3-canary.11 `pnpm add next@14.0.3-canary.11 && pnpm build` and observe that the build passes
+- Updrade to v14.0.3-canary.12 `pnpm add next@14.0.3-canary.12 && pnpm build` and observe that the build fails
